@@ -24,10 +24,11 @@ const app = express();
 dotenv.config({path: './.env'});
 
 app.use(flash());
+app.use(cookieParser());
 app.use(session({secret: process.env.SESSION_SECRET, saveUninitialized: true, resave: true}));
 app.use(express.static(__dirname+'/public'));
 app.use(express.json());
-app.use(cookieParser());
+
 
 //view engine
 app.set('view engine', 'ejs');
